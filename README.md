@@ -53,7 +53,5 @@ Use your computer keyboard to simulate piano key presses:
 - 🌗 Light/Dark mode toggle
 - 🎙️ Audio and event recording functionality
 
----
 
-## 🗂 Project Structure
 
