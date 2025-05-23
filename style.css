@@ -1,0 +1,247 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-primary: #2a2a2a;
+  --color-accent: #4169E1;
+  --color-white-key: #ffffff;
+  --color-black-key: #000000;
+  --color-white-key-active: #e6e6e6;
+  --color-black-key-active: #333333;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+}
+
+.dark-theme {
+  --color-bg: #1a1a1a;
+  --color-text: #ffffff;
+  --color-primary: #ffffff;
+  --color-white-key: #e0e0e0;
+  --color-black-key: #333333;
+  --color-white-key-active: #ffffff;
+  --color-black-key-active: #000000;
+  --shadow: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--shadow);
+  border-radius: 8px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type="range"] {
+  width: 150px;
+}
+
+.recording-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#record-btn {
+  background: #e74c3c;
+}
+
+#record-btn.recording {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+.piano-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--shadow);
+  border-radius: 8px;
+}
+
+#piano-keyboard {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.piano-key {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  transition: all 0.1s ease;
+}
+
+.white-key {
+  background: var(--color-white-key);
+  border: 1px solid var(--shadow);
+  width: 40px;
+  height: 200px;
+  border-radius: 0 0 4px 4px;
+  z-index: 1;
+}
+
+.black-key {
+  background: var(--color-black-key);
+  width: 30px;
+  height: 120px;
+  margin: 0 -15px;
+  z-index: 2;
+  border-radius: 0 0 4px 4px;
+}
+
+.white-key.active {
+  background: var(--color-white-key-active);
+  transform: translateY(2px);
+}
+
+.black-key.active {
+  background: var(--color-black-key-active);
+  transform: translateY(2px);
+}
+
+.key-label {
+  font-size: 0.8rem;
+  color: var(--color-text);
+}
+
+.black-key .key-label {
+  color: var(--color-white-key);
+}
+
+.instructions {
+  margin-top: 3rem;
+}
+
+.instruction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.instruction-card {
+  padding: 1.5rem;
+  background: var(--shadow);
+  border-radius: 8px;
+}
+
+.instruction-card h3 {
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.instruction-card ul {
+  list-style-position: inside;
+  margin-top: 0.5rem;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .white-key {
+    width: 35px;
+  }
+
+  .black-key {
+    width: 25px;
+    margin: 0 -12.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .white-key {
+    width: 30px;
+  }
+
+  .black-key {
+    width: 20px;
+    margin: 0 -10px;
+  }
+}

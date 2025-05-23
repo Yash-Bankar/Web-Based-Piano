@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Piano by YashB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Web Piano 🎹𝄞</h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">☀️Switch</span>
+        <span class="icon-dark">them🌙</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="controls">
+        <div class="volume-control">
+          <label for="volume">Volume🔉</label>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
+        </div>
+        <div class="recording-controls">
+          <button id="record-btn" class="btn">
+            <span class="record-icon">⚫</span> Record
+          </button>
+          <button id="stop-btn" class="btn" disabled>
+            <span class="stop-icon">■</span> Stop
+          </button>
+          <button id="download-btn" class="btn" disabled>
+            <span class="download-icon">↓</span> Download Note Event(.json)
+          </button>
+        </div>
+      </section>
+
+      <section class="piano-container">
+        <div id="piano-keyboard"></div>
+      </section>
+
+      <section class="instructions">
+        <h2>📘Guide (How to use this site) ♬</h2>
+        <div class="instruction-grid">
+          <div class="instruction-card">
+            <h3>Keyboard Controls⌨</h3>
+            <p>Use your computer keyboard to play:</p>
+            <ul>
+              <li>Lower row (Z-M): C4 to B4</li>
+              <li>Upper row (Q-U): C5 to B5</li>
+              <li>Black keys: Numbers and letters above</li>
+            </ul>
+          </div>
+          <div class="instruction-card">
+            <h3>Mouse Controls🖱️</h3>
+            <p>Click or tap any key to play.</p>
+          </div>
+          <div class="instruction-card">
+            <h3>Recording🎤</h3>
+            <p>Use Record button to start recording and Stop button to stop(the audio file of your recording will be automatically will be downloaded as WEBM File (.webm) ).....Also you can download your notes recorded as .json file by clicking the Download button!!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Created By Yash Ganesh Bankar(24034017)</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
