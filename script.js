@@ -42,7 +42,7 @@ class Piano {
 
   async loadSound(note) {
     try {
-      const response = await fetch(`/sounds/${note}.mp3`);
+      const response = await fetch(`sounds/${note}.mp3`);
       const arrayBuffer = await response.arrayBuffer();
       const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
       return audioBuffer;
